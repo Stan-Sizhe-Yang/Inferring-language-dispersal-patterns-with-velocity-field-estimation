@@ -49,7 +49,7 @@ LVF.res <- LVF.run.fun(data,
 
 ### 2. Decomposing function "LVF.run.fun"
 &emsp;&emsp;**The "LVF.run.fun" contains belows functions**
-#### 1. prepare input variables
+#### 1. Prepare input variables
 * Filter out the language samples without geographic coordinates
 ```
 data.omit <- data[!is.na(data[, 4]), ]
@@ -58,7 +58,7 @@ data.omit <- data[!is.na(data[, 4]), ]
 ```
 data.02 <- data.01[, keep.missing(data.01)]
 ```
-* Mode imputation for missing values
+* Mode imputation for missing values of each linguistic trait
 ```
 data.03 <- imputation(data.02)
 ```
@@ -68,4 +68,5 @@ label <- as.factor(data.omit[, 1])
 coord <- data.omit[, c("Longitude", "Latitude")]
 coord.mat <- data.frame(name = label, longtitude = coord[, 1], latitude = coord[, 2])
 ```
+#### 2. Convert the binary values of each linguistic trait into state frequencies
 
