@@ -41,6 +41,10 @@ LVF.res <- LVF.run.fun(data,
                          
                        grid.map.length = 1, grid.map.cex = 1, grid.map.arrow.cex = 0.05, grid.map.n.grid = 4)
 ```
+&emsp;&emsp;The input dataset for "data" should be a data.frame containing these columns:
+&emsp;&emsp;![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/281429ec-14b6-460f-862c-f55c0967f2f8)
+  
+&emsp;&emsp;The first and second columns should be at "character" format, and the rest of the columns should be at "numeric" format.
 
 ### 2. Decomposing function "LVF.run.fun"
 
