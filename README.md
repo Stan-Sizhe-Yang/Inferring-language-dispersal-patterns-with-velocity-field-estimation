@@ -69,4 +69,11 @@ coord <- data.omit[, c("Longitude", "Latitude")]
 coord.mat <- data.frame(name = label, longtitude = coord[, 1], latitude = coord[, 2])
 ```
 #### 2. Convert the binary values of each linguistic trait into state frequencies
+```
+smooth.data <- knn.smooth.func(data.03, nearest.n = 10, 
+                               extral.info = coord)
+```
+  
+&emsp;&emsp;The smooth.data should be with this format
 
+   ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/6b36fb4e-bcd0-418d-a021-fb22ad7109d5)
