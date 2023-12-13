@@ -3,7 +3,7 @@
 ## I. File description
 **This repository contains three files:**
 
-**1.  Supplementary_Materials: Datasets:**
+**1.  Supplementary_Materials: Datasets**
   
 &emsp;&emsp;The datasets of four language cases utilized in this study. The detailed information can be found in README within this file.  
 
