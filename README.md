@@ -45,8 +45,27 @@ LVF.res <- LVF.run.fun(data,
   
 &emsp;&emsp;![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/281429ec-14b6-460f-862c-f55c0967f2f8)
   
-&emsp;&emsp;The first column contains the labels of the language samples and the second colum contains the names of the language samples. These two columns should be at "character" format. The third and fourth columns contains the longitudes and latitudes of the language samples. They should be at the "numeric" format. The rest of the columns contains the values of the binary-coded lingusitic traits and they should be at "numeric" format.
+&emsp;&emsp;The first column contains the labels of the language samples and the second column contains the names of the language samples. These two columns should be at "character" format. The third and fourth columns contains the longitudes and latitudes of the language samples. They should be at the "numeric" format. The rest of the columns contains the values of the binary-coded lingusitic traits and they should be at "numeric" format.
 
 ### 2. Decomposing function "LVF.run.fun"
-
+&emsp;&emsp;**The "LVF.run.fun" contains belows functions**
+#### 1. prepare input variables
+* Filter out the language samples without geographic coordinates
+```
+data.omit <- data[!is.na(data[, 4]), ]
+```
+* Filter out the linguistic traits with missing values >75%
+```
+data.02 <- data.01[, keep.missing(data.01)]
+```
+* Mode imputation for missing values
+```
+data.03 <- imputation(data.02)
+```
+* Prepare the rest of the input variables
+```
+label <- as.factor(data.omit[, 1])
+coord <- data.omit[, c("Longitude", "Latitude")]
+coord.mat <- data.frame(name = label, longtitude = coord[, 1], latitude = coord[, 2])
+```
 
