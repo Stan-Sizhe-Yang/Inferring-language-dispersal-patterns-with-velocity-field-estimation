@@ -19,12 +19,29 @@
 
 ## II. Detailed tutorial for applying LVF
 
-**Here, we will detailly explain each function and its parameters of "LVF" package based on the schematic overview (Figure 1) of the rationale and procedure of LVF.**
+&emsp;&emsp;**Here, we will detailly explain each function and its parameters of "LVF" package based on the schematic overview (Figure 1) of the rationale and procedure of LVF.**
 
 ![433661_2_figure_8379516_s5by4z_convrt](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/1191995a-bfaa-41a2-bc2a-41082104aace)
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**Figure 1: Schematic overview of the LVF for inferring the dispersal trajectories and centres of languages.**
 
-### 1. Applying LVF with one function
-&emsp;&emsp;The LVF can be conducted using only one function
+### 1. Applying LVF with one function "LVF.run.fun"
+&emsp;&emsp;The LVF can be conducted using only one function: LVF.run.fun
+```
+LVF.res <- LVF.run.fun(data,
+  
+                       # The parameters below are for plotting the language velocity field.
+                         
+                       # They should better be chosen depending on the visual scale and geographic range of the figure.
+                         
+                       grid.smooth.map.sep2 = 2, grid.smooth.sigma = 1, grid.smooth.map.n = 10,
+                         
+                       PCA.velocity.length = 0.8, map.region = 'world',
+                         
+                       spatial.map.length = 0.1, spatial.map.cex = 0.3, spatial.map.arrow.cex = 0.03,
+                         
+                       grid.map.length = 1, grid.map.cex = 1, grid.map.arrow.cex = 0.05, grid.map.n.grid = 4)
+```
+
+### 2. Decomposing function "LVF.run.fun"
 
 
