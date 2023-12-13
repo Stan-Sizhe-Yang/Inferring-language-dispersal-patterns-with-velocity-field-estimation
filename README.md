@@ -23,3 +23,7 @@
 
 ![433661_2_figure_8379516_s5by4z_convrt](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/1191995a-bfaa-41a2-bc2a-41082104aace)
 **Figure 1: Schematic overview of the LVF for inferring the dispersal trajectories and centres of languages.**
+
+### Applying LVF with one function
+The LVF can be conducted using only one function
+
