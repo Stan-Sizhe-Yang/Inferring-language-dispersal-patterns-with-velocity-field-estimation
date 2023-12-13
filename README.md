@@ -11,3 +11,11 @@ The R codes for model validations and comparisons conducted in this study. The d
 
 3.  Supplementary_Materials:
 R_package_and_tutorial_of_LVF: The R package namely LVF and the tutorial for its implementaion. The detailed information can be found in README within this file.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Detailed tutorial for applying LVF
+
+Here, we will detailly explain each function and its parameters of "LVF" package based on the schematic overview of the rationale and procedure of LVF.
+
+![433661_2_figure_8379516_s5by4z_convrt](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/1191995a-bfaa-41a2-bc2a-41082104aace)
+Figure 1: Schematic overview of the LVF for inferring the dispersal trajectories and centres of languages.
