@@ -80,7 +80,7 @@ smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
 
 ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/6b36fb4e-bcd0-418d-a021-fb22ad7109d5)<>
 
-### 3. Establish the velocity field within high-dimensional space
+#### 3. Establish the velocity field within high-dimensional space
 * Estimate the prestige parameter in our dynamic model using Poisson process. The default value for the parameter ```lambda``` which denotes the mutation rate of Poisson process is 1 (Figure 1d1).
   ```
   prestige <- possion.prcess.func(data.03, lambda = 1)
@@ -91,7 +91,7 @@ smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
   ```
   The output ```pre``` is a list that contains two elements. The first one is the matrix containing the past states for linguistic traits in language samples. The second is the matrix containing the high-dimensional velocity vectors for language samples.
 
-### 4. PCA projection of high-dimensional velocity field
+#### 4. PCA projection of high-dimensional velocity field
 &emsp;&emsp;Perform the Principle Component Analysis (PCA) to extract the lingusitic relatedness among language samples within two-dimensional PC space and project the high-dimensional velocity field into this two-dimensional PC space (Figure 1e).
 ```
 pca.vel <- pca.velocity(data.03, pre, label)
@@ -101,7 +101,7 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
   
 ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/9eb61030-93bb-4ee6-b2ea-c80afab26d06)
 
-### 4. Geographic projection of velocity field from PC space into geographic space
+#### 5. Geographic projection of velocity field from PC space into geographic space
 * **Kernel projection of velocity field within PC space**
   ```
   kernal.proj.rlt <- kernal.proj.2(pca.vel$data.comb[, -1], pca.vel$v.dirc, coord, sigma1 = 1, sigma2 = 10)
@@ -116,7 +116,7 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
     
   ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/07f4e1e0-acb4-4717-b269-f16dc41a696f)
 
-### 5. Grid smoothing and language dispersal centre inference
+#### 6. Grid smoothing and language dispersal centre inference
 * **Grid smoothing for velocity field**
   ```
   grid.smooth.map.rlt <- grid.pca.smooth.2(coord.mat[, -1], smooth.length.kernal.v.dirc, sep = 2, sigma = 1, n = 10)
