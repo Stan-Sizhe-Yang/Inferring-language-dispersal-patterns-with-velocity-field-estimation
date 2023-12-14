@@ -68,7 +68,7 @@ LVF.res <- LVF.run.fun(data,
   coord <- data.omit[, c("Longitude", "Latitude")]
   coord.mat <- data.frame(name = label, longtitude = coord[, 1], latitude = coord[, 2])
   ```
-#### 2. Convert the binary values of each linguistic trait into state frequencies
+#### 2. Convert the binary value of each linguistic trait into state frequency
 &emsp;&emsp;The conversion of the binary value for each linguistic trait in each language sample is accomplished with "knn.smooth.func" function by choosing **_nearest.n_** geographically closest language samples to that language sample (Figure 1c).
   
 ```
