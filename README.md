@@ -56,6 +56,7 @@ LVF.res <- LVF.run.fun(data,
   ```
 * Filter out the linguistic traits with missing values >75%
   ```
+  data.01 <- data.omit[, -c(1:4)]
   data.02 <- data.01[, keep.missing(data.01)]
   ```
 * Mode imputation for missing values of each linguistic trait
