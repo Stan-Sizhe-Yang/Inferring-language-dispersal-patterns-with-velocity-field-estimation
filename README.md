@@ -97,7 +97,7 @@ smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
 pca.vel <- pca.velocity(data.03, pre, label)
 color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
 ```
-&emsp;&emsp;The output ```pca.vel``` contains two elements. The first one is the matrix containing the PC values of the binary-coded lingusitic traits. The second one is the matrix containing the velocity vectors of language samples within PC space. The "velocity.plt" function will return a figure that is the visualization of the velocity field within PC space as shown in below. The parameter ```l``` is the length of the arrow visualized in this figure and the parameter ```ratio``` is the aspect ratio of this figure.
+&emsp;&emsp;The output ```pca.vel``` contains two elements. The first one is the matrix containing the PC values of the binary-coded lingusitic traits. The second one is the matrix containing the velocity vectors of language samples within PC space. The ```velocity.plt``` function will return a figure that is the visualization of the velocity field within PC space as shown in below. The parameter ```l``` is the length of the arrow visualized in this figure and the parameter ```ratio``` is the aspect ratio of this figure.
   
 ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/9eb61030-93bb-4ee6-b2ea-c80afab26d06)
 
