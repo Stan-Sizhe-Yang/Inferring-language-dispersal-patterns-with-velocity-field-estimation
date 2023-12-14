@@ -48,7 +48,7 @@ LVF.res <- LVF.run.fun(data,
 &emsp;&emsp;The first column contains the labels of the language samples and the second column contains the names of the language samples, which should be at "character" format. The third and fourth columns contains the longitudes and latitudes of the language samples, which should be at the "numeric" format. The rest of the columns contains the values of the binary-coded lingusitic traits, which should be at "numeric" format.
 
 ### 2. Decomposing function ```LVF.run.fun```
-&emsp;&emsp;**The ```LVF.run.fun``` contains belows functions**
+&emsp;&emsp;**The ```LVF.run.fun``` contains following functions**
 #### 1. Prepare input variables
 * Filter out the language samples without geographic coordinates
   ```
