@@ -69,7 +69,7 @@ LVF.res <- LVF.run.fun(data,
   coord.mat <- data.frame(name = label, longtitude = coord[, 1], latitude = coord[, 2])
   ```
 #### 2. Convert the binary values of each linguistic trait into state frequencies
-&emsp;&emsp;The conversion of the binary value for each linguistic trait in each language sample is accomplished with "knn.smooth.func" function by choosing "nearest.n" geographically closest language samples to that language sample (Figure 1c).
+&emsp;&emsp;The conversion of the binary value for each linguistic trait in each language sample is accomplished with "knn.smooth.func" function by choosing _nearest.n_ geographically closest language samples to that language sample (Figure 1c).
   
 ```
 smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
@@ -80,7 +80,7 @@ smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
    ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/6b36fb4e-bcd0-418d-a021-fb22ad7109d5)
 
 ### 3. Establish the velocity field within high-dimensional space
-* Estimate the prestige parameter in our dynamic model using Poisson process. The default value for the mutation rate of Poisson process is 1 (Figure 1d1).
+* Estimate the prestige parameter in our dynamic model using Poisson process. The default value for the parameter _lambda_ which denotes the mutation rate of Poisson process is 1 (Figure 1d1).
   ```
   prestige <- possion.prcess.func(data.03, lambda = 1)
   ```
@@ -89,3 +89,13 @@ smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
   pre <- pre.smooth.data.func(smooth.data, prestige)
   ```
   The output "pre" is a list that contains two elements. The first one is the matrix containing the past states for linguistic traits in language samples. The second is the matrix containing the high-dimensional velocity vectors for language samples.
+
+### 4. PCA projection of high-dimensional velocity field
+&emsp;&emsp;Perform the Principle Component Analysis (PCA) to extract the lingusitic relatedness among language samples within two-dimensional PC space and project the high-dimensional velocity field into this two-dimensional PC space (Figure 1e).
+```
+pca.vel <- pca.velocity(data.03, pre, label)
+color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
+```
+&emsp;&emsp;The output "pca.vel" contains two elements. The first one is the matrix containing the PC values of the binary-coded lingusitic traits. The second one is the matrix containing the velocity vectors of language samples within PC space. The "velocity.plt" function will return a figure that is the visualization of the velocity field within PC space as shown in below. The parameter _l_ is the length of the arrow visualized in this figure and the parameter _ratio_ is the aspect ratio of this figure.
+  
+![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/9eb61030-93bb-4ee6-b2ea-c80afab26d06)
