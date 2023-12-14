@@ -114,7 +114,7 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
   ```
   The spatial smoothing aims to better visualize the velocity field without changing the dispersal pattern reflected by it (Figure 1f). It adjusts the length of each velocity vector within geographic space to be the same as its length within PC space. Then, it utilizes the gaussian kernel to smooth the length of each velocity vector. The parameter ```sigma``` is the bandwidth of the gaussian kernel whose default value is set as 10.
     
-  ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/07f4e1e0-acb4-4717-b269-f16dc41a696f)
+  <img align="center" src="https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/07f4e1e0-acb4-4717-b269-f16dc41a696f">
 
 #### 6. Grid smoothing and language dispersal centre inference
 * **Grid smoothing for velocity field**
@@ -143,8 +143,9 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
   ```
   The dispersal center is determined as the grid point surrounded by velocity vectors displaying the most prominent outward radiative pattern (Figure 1g). The degree of the outward radiative pattern is measured by averaging the variance of velocity vectors around a specific grid point across each dimension. The parameter ```bandwidth``` signifies the selection of bandwidth<sup>2</sup> velocity vectors utilized for computing the degree of such a outward radiative pattern. The default value of parameter ```bandwidth``` is 2. The parameter ```id``` is suggested to be set as True, when multiple potential dispersal centers in close proximity are shown by the velocity field (e.g., Bantu language case as shwon in Figure 1f) or when the geographic distribution of langauge samples is notably sparse.
     
-  <img align="center" src="https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/e5b53d83-dc37-40c6-bdd5-03d60baf0527">
-
+<center>
+  <img src="https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/e5b53d83-dc37-40c6-bdd5-03d60baf0527">
+</center>
 
 
 
