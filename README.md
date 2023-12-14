@@ -25,7 +25,7 @@
 **Figure 1: Schematic overview of the LVF for inferring the dispersal trajectories and centres of languages.**
 
 ### 1. Applying LVF with one function "LVF.run.fun"
-&emsp;&emsp;The LVF can be conducted using only one function ```LVF.run.fun```.
+&emsp;&emsp;The LVF can be conducted using just one function ```LVF.run.fun```.
 ```
 LVF.res <- LVF.run.fun(data,
   
