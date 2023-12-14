@@ -121,8 +121,18 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
   grid.smooth.map.rlt <- grid.pca.smooth.2(coord.mat[, -1], smooth.length.kernal.v.dirc, sep = 2, sigma = 1, n = 10)
   ```
   The grid smoothing aims  to better visualize a velocity field on regular grid points. With grid smoothing, the velocity vectors could exhibit a uniform distribution across the geographic space (Fig. 1g). Moreover, the grid smoothing can also estimate the velocity vectors within the geographic area which lacks available language samples. This ensures that the grid-smoothed velocity field can effectively illustrate the continuous dispersal patterns of language samples throughout their entire geographic span. The rationale of grid smoothing is to average the velocity vectors which are located in the slide window of each grid point using the gaussian kernel. The parameter **_sigma_** is the bandwidth of the gaussian kernel whose default value is set as 1. The parameter **_n_** is the width of slide window whose value is suggested to be set based on the geographic range of the language samples.
+  ```
+    plt.lm.PCA.proj.grid.smooth(coord.mat, grid.smooth.map.rlt$grid.v.dirc, 
+                            grid.smooth.map.rlt$grid.coord, color = color, region = "South America", 
+                            l = 1.4, arrow.scale = T, cex = 2, 
+                            arrow.cex = 0.04, n.grid = 3)
+  ```
+  The function "plt.lm.PCA.proj.grid.smooth" visualizes grid-smoothed velocity field within geographic space. The parameter **_l_** is the length of the velocity vector visualized in the figure. The parameter **_n.grid_** is the number of the velocity vectors visualized near each grid point. The parameter **_arrow.scale_** denotes whether to normalize the velocity vector for better visualization whose default value is True.
     
-  ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/44f9d6e8-0f04-4666-b9dc-5c7369b6d1e8)
+  ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/44f9d6e8-0f04-4666-b9dc-5c7369b6d1e8)![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/0bb4d509-9ee3-4ca0-8042-9b17823d996a)
+
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 3**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 7**
 * **Dispersal center inference**
   ```
   center <- identiy.expansion.center(grid.smooth.map.rlt$grid.coord, grid.smooth.map.rlt$grid.v.dirc, bandwidth = 2, id = F)[[1]]
