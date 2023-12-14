@@ -112,7 +112,7 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
   smooth.length.kernal.v.dirc <- spatial.smooth.dirc(coord, kernal.proj.rlt$kernal.v.direc, pca.vel$v.dirc, sigma = 10)
   plt.lm.PCA.proj(coord.mat, smooth.length.kernal.v.dirc, color = color, region = "South America", l = 0.03, cex = 1.5, arrow.cex = 0.03)
   ```
-  The function ```spatial.smooth.dirc``` aims to better visualize the velocity field without changing the dispersal pattern reflected by it (Figure 1f). It adjusts the length of each velocity vector within geographic space to be the same as its length within PC space. Then, it utilizes the gaussian kernel to smooth the length of each velocity vector. The parameter ```sigma``` is the bandwidth of the gaussian kernel whose default value is set as 10. The ```plt.lm.PCA.proj``` can visualize the velocity field within the geographic space.
+  The function ```spatial.smooth.dirc``` aims to better visualize the velocity field without changing the dispersal pattern reflected by it (Figure 1f). It adjusts the length of each velocity vector within geographic space to be the same as its length within PC space. Then, it utilizes the gaussian kernel to smooth the length of each velocity vector. The parameter ```sigma``` is the bandwidth of the gaussian kernel whose default value is set as 10. The function ```plt.lm.PCA.proj``` can visualize the velocity field within the geographic space.
     
   <img align="center" src="https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/07f4e1e0-acb4-4717-b269-f16dc41a696f">
 
