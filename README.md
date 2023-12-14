@@ -127,17 +127,19 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
                             l = 1.4, arrow.scale = T, cex = 2, 
                             arrow.cex = 0.04, n.grid = 3)
   ```
-  The function "plt.lm.PCA.proj.grid.smooth" visualizes grid-smoothed velocity field within geographic space. The parameter **_l_** is the length of the velocity vector visualized in the figure. The parameter **_n.grid_** is the number of the velocity vectors visualized near each grid point. The parameter **_arrow.scale_** denotes whether to normalize the velocity vector for better visualization whose default value is True.
+  The function "plt.lm.PCA.proj.grid.smooth" visualizes grid-smoothed velocity field within geographic space. The parameter **_l_** is the length of the velocity vector visualized in the figure. The parameter **_n.grid_** is the number of the velocity vectors visualized near each grid point. The parameter **_arrow.scale_** denotes whether to normalize the velocity vector for better visualization whose default value is True. The parameter **_region_** is the geographic region for visualizing the velocity field whose default value is "world".
     
   ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/44f9d6e8-0f04-4666-b9dc-5c7369b6d1e8)![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/0bb4d509-9ee3-4ca0-8042-9b17823d996a)
-
-
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 3**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 7**
+  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 3**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 7**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/68dd6cfb-055f-4363-957e-694790d709b4)
+  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**region = "world"**
 * **Dispersal center inference**
   ```
   center <- identiy.expansion.center(grid.smooth.map.rlt$grid.coord, grid.smooth.map.rlt$grid.v.dirc, bandwidth = 2, id = F)[[1]]
   ```
-  The grid point which is surrounded by the velocity vectors that exhibit the strongest outwards radiative pattern is regarded as the dispersal center. The degree of the outwards radiative pattern is measured the averaging the variance of velocity vectors near to a certain grid point in their each dimension. The parameter **_bandwidth_** denotes choosing bandwidth<sup>2</sup> velocity vectors for measuring the degree of such outwards radiative pattern. The default value of parameter **_bandwidth_** is 2. The parameter **_id_** is suggested to be set as True, once multiple potential dispersal centers that are close to each other are shown by the velocity field (e.g., Bantu language case as shwon in Figure 1f) or the geographic distribution of langauge samples is very sparse.
+  The grid point which is surrounded by the velocity vectors that exhibit the strongest outwards radiative pattern is regarded as the dispersal center. The degree of the outwards radiative pattern is measured the averaging the variance of velocity vectors near to a certain grid point in their each dimension. The parameter **_bandwidth_** denotes choosing bandwidth<sup>2</sup> velocity vectors for calculating the degree of such outwards radiative pattern. The default value of parameter **_bandwidth_** is 2. The parameter **_id_** is suggested to be set as True, once multiple potential dispersal centers that are close to each other are shown by the velocity field (e.g., Bantu language case as shwon in Figure 1f) or the geographic distribution of langauge samples is very sparse.
     
   ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/e5b53d83-dc37-40c6-bdd5-03d60baf0527)
 
