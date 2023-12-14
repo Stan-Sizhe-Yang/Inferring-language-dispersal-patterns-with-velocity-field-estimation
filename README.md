@@ -51,29 +51,41 @@ LVF.res <- LVF.run.fun(data,
 &emsp;&emsp;**The "LVF.run.fun" contains belows functions**
 #### 1. Prepare input variables
 * Filter out the language samples without geographic coordinates
-```
-data.omit <- data[!is.na(data[, 4]), ]
-```
+  ```
+  data.omit <- data[!is.na(data[, 4]), ]
+  ```
 * Filter out the linguistic traits with missing values >75%
-```
-data.02 <- data.01[, keep.missing(data.01)]
-```
+  ```
+  data.02 <- data.01[, keep.missing(data.01)]
+  ```
 * Mode imputation for missing values of each linguistic trait
-```
-data.03 <- imputation(data.02)
-```
+  ```
+  data.03 <- imputation(data.02)
+  ```
 * Prepare the rest of the input variables
-```
-label <- as.factor(data.omit[, 1])
-coord <- data.omit[, c("Longitude", "Latitude")]
-coord.mat <- data.frame(name = label, longtitude = coord[, 1], latitude = coord[, 2])
-```
+  ```
+  label <- as.factor(data.omit[, 1])
+  coord <- data.omit[, c("Longitude", "Latitude")]
+  coord.mat <- data.frame(name = label, longtitude = coord[, 1], latitude = coord[, 2])
+  ```
 #### 2. Convert the binary values of each linguistic trait into state frequencies
+&emsp;&emsp;The conversion of the binary value for each linguistic trait in each language sample is accomplished with "knn.smooth.func" function by choosing "nearest.n" geographically closest language samples to that language sample (Figure 1c).
+  
 ```
-smooth.data <- knn.smooth.func(data.03, nearest.n = 10, 
-                               extral.info = coord)
+smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
 ```
   
-&emsp;&emsp;The smooth.data should be with this format
+&emsp;&emsp;The default value for parameter "nearest.n" is 10. The smooth.data should be with this format.
 
    ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/6b36fb4e-bcd0-418d-a021-fb22ad7109d5)
+
+### 3. Establish the velocity field within high-dimensional space
+* Estimate the prestige parameter in our dynamic model using Poisson process. The default value for the mutation rate of Poisson process is 1 (Figure 1d1).
+  ```
+  prestige <- possion.prcess.func(data.03, lambda = 1)
+  ```
+* Reconstruct the past state for each linguistic trait and calcualte the high-dimensional velocity field (Figure 1d2).
+  ```
+  pre <- pre.smooth.data.func(smooth.data, prestige)
+  ```
+  The output "pre" is a list that contains two elements. The first one is the matrix containing the past states for linguistic traits in language samples. The second is the matrix containing the high-dimensional velocity vectors for language samples.
