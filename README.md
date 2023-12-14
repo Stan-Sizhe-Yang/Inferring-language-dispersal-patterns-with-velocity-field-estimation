@@ -45,7 +45,7 @@ LVF.res <- LVF.run.fun(data,
   
 ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/281429ec-14b6-460f-862c-f55c0967f2f8)
   
-&emsp;&emsp;The first column contains the labels of the language samples and the second column contains the names of the language samples. These two columns should be at "character" format. The third and fourth columns contains the longitudes and latitudes of the language samples. They should be at the "numeric" format. The rest of the columns contains the values of the binary-coded lingusitic traits and they should be at "numeric" format.
+&emsp;&emsp;The first column contains the labels of the language samples and the second column contains the names of the language samples, which should be at "character" format. The third and fourth columns contains the longitudes and latitudes of the language samples, which should be at the "numeric" format. The rest of the columns contains the values of the binary-coded lingusitic traits, which should be at "numeric" format.
 
 ### 2. Decomposing function ```LVF.run.fun```
 &emsp;&emsp;**The ```LVF.run.fun``` contains belows functions**
