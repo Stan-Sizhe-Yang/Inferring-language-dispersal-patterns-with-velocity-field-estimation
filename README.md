@@ -75,7 +75,7 @@ LVF.res <- LVF.run.fun(data,
 smooth.data <- knn.smooth.func(data.03, nearest.n = 10, extral.info = coord)
 ```
   
-&emsp;&emsp;The default value for parameter "nearest.n" is 10. The smooth.data should be with this format.
+&emsp;&emsp;The default value for parameter _nearest.n_ is 10. The smooth.data should be with this format.
 
    ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/6b36fb4e-bcd0-418d-a021-fb22ad7109d5)
 
