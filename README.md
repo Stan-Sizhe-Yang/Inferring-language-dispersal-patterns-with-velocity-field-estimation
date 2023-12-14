@@ -106,13 +106,13 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
   ```
   kernal.proj.rlt <- kernal.proj.2(pca.vel$data.comb[, -1], pca.vel$v.dirc, coord, sigma1 = 1, sigma2 = 10)
   ```
-  The kernel projection aims to map the velocity field within PC space into geogrpahic space based on the correlation between lingusitic relatedness and language geography (Figure 1f). It utilizes the composite of exponential kernel and gaussian kernel to measure the correlation between velocity vectors and language distribution within PC space. Then, it utilizes such correlation as weight to compute the velocity vector within geographic space. The parameter ```sigma1``` is the bandwidth of the exponential kernel whose default value is set as 1. The parameter ```sigma2``` is the bandwidth of the gaussian kernel whose default value is set as 10. Once the language dispersal is largely restricted by the envrionmental constraints such as mountain, island, river, and ocean, the value of ```sigma2``` is suggested to be set as a small value such as 0.1.
+  The function ```kernal.proj.2``` aims to map the velocity field within PC space into geogrpahic space based on the correlation between lingusitic relatedness and language geography (Figure 1f). It utilizes the composite of exponential kernel and gaussian kernel to measure the correlation between velocity vectors and language distribution within PC space. Then, it utilizes such correlation as weight to compute the velocity vector within geographic space. The parameter ```sigma1``` is the bandwidth of the exponential kernel whose default value is set as 1. The parameter ```sigma2``` is the bandwidth of the gaussian kernel whose default value is set as 10. Once the language dispersal is largely restricted by the envrionmental constraints such as mountain, island, river, and ocean, the value of ```sigma2``` is suggested to be set as a small value such as 0.1.
 * **Spatial smoothing for velocity field within geographic space**
   ```
   smooth.length.kernal.v.dirc <- spatial.smooth.dirc(coord, kernal.proj.rlt$kernal.v.direc, pca.vel$v.dirc, sigma = 10)
   plt.lm.PCA.proj(coord.mat, smooth.length.kernal.v.dirc, color = color, region = "South America", l = 0.03, cex = 1.5, arrow.cex = 0.03)
   ```
-  The spatial smoothing aims to better visualize the velocity field without changing the dispersal pattern reflected by it (Figure 1f). It adjusts the length of each velocity vector within geographic space to be the same as its length within PC space. Then, it utilizes the gaussian kernel to smooth the length of each velocity vector. The parameter ```sigma``` is the bandwidth of the gaussian kernel whose default value is set as 10.
+  The function ```spatial.smooth.dirc``` aims to better visualize the velocity field without changing the dispersal pattern reflected by it (Figure 1f). It adjusts the length of each velocity vector within geographic space to be the same as its length within PC space. Then, it utilizes the gaussian kernel to smooth the length of each velocity vector. The parameter ```sigma``` is the bandwidth of the gaussian kernel whose default value is set as 10. The ```plt.lm.PCA.proj``` can visualize the velocity field within the geographic space.
     
   <img align="center" src="https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/07f4e1e0-acb4-4717-b269-f16dc41a696f">
 
@@ -121,7 +121,7 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
   ```
   grid.smooth.map.rlt <- grid.pca.smooth.2(coord.mat[, -1], smooth.length.kernal.v.dirc, sep = 2, sigma = 1, n = 10)
   ```
-  The grid smoothing aims  to better visualize a velocity field on regular grid points. With grid smoothing, the velocity vectors could exhibit a uniform distribution across the geographic space (Figure 1g). Moreover, the grid smoothing can also estimate the velocity vectors within the geographic area which lacks available language samples. This ensures that the grid-smoothed velocity field can effectively illustrate the continuous dispersal patterns of language samples throughout their entire geographic span. The rationale of grid smoothing is to average the velocity vectors which are located in the slide window of each grid point using the gaussian kernel. The parameter ```sigma``` is the bandwidth of the gaussian kernel whose default value is set as 1. The parameter ```n``` is the width of slide window whose value is suggested to be set based on the geographic range of the language samples.
+  The function ```grid.pca.smooth.2``` aims  to better visualize a velocity field on regular grid points. With grid smoothing, the velocity vectors could exhibit a uniform distribution across the geographic space (Figure 1g). Moreover, the grid smoothing can also estimate the velocity vectors within the geographic area which lacks available language samples. This ensures that the grid-smoothed velocity field can effectively illustrate the continuous dispersal patterns of language samples throughout their entire geographic span. The rationale of grid smoothing is to average the velocity vectors which are located in the slide window of each grid point using the gaussian kernel. The parameter ```sigma``` is the bandwidth of the gaussian kernel whose default value is set as 1. The parameter ```n``` is the width of slide window whose value is suggested to be set based on the geographic range of the language samples.
   ```
     plt.lm.PCA.proj.grid.smooth(coord.mat, grid.smooth.map.rlt$grid.v.dirc, 
                             grid.smooth.map.rlt$grid.coord, color = color, region = "South America", 
@@ -132,7 +132,7 @@ color <- velocity.plt(pca.vel$data.comb, pca.vel$v.dirc, l = 1.2, ratio = 1)
     
   ![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/44f9d6e8-0f04-4666-b9dc-5c7369b6d1e8)![image](https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/0bb4d509-9ee3-4ca0-8042-9b17823d996a)
   
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 3**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 7**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 4**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**n.grid = 7**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
 <img align="center" src="https://github.com/Stan-Sizhe-Yang/Inferring-language-dispersal-patterns-with-velocity-field-estimation/assets/46415427/68dd6cfb-055f-4363-957e-694790d709b4">
   
